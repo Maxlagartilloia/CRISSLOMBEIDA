@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Básico --><title>Criss Lombeida | Páginas Web y Estrategia Digital para Emprendedores</title>
+    <meta name="description" content="Ayudamos a los emprendedores ecuatorianos a brillar en Internet. Creamos páginas web rápidas, con WhatsApp automatizado y enfoque humano.">
+    <link rel="icon" type="image/svg+xml" href="https://i.postimg.cc/59QpJsBB/IMG_0314_removebg_preview.png">
+    
+    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    
+    <!-- Configuración de Tema y Tipografía (Inter + Poppins para efectos) --><style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+        :root {
+            /* Colores Base (Azules Oscuros de tu Branding) */
+            --color-dark: #081733;
+            --color-medium: #0a2252;
+            --color-ink: #e6f0ff;
+            
+            /* Acentos */
+            --color-accent: #9cc9ff; /* Celeste */
+            --color-cta: #ffffff; /* Blanco para botón principal */
+            --color-cta-dark: #081733; /* Texto oscuro para CTA principal */
+            --color-muted: #b9c9b9;
+            --yellow-cta: #FFD700; /* Color amarillo (mantenido para destacar) */
+
+            /* Fondos y gradientes */
+            --bg-grad1: #0a2a6a;
+            --bg-grad2: #081733;
+            --card: rgba(10, 34, 82, 0.85); /* Fondo de tarjeta semi-transparente azul */
+            --input-bg: rgba(255, 255, 255, 0.05); /* Fondo de input */
+        }
+
+        /* --- ESTILOS BASE --- */
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            color: var(--color-ink);
+            background-color: var(--color-dark);
+            min-height: 100vh;
+        }
+
+        /* --- FONDO FIJO (Solución Estable) --- */
+        .fixed-background {
+            position: fixed; inset: 0; z-index: -1;
+            background: linear-gradient(to bottom right, var(--bg-grad2), var(--bg-grad1));
+        }
+
+        /* Keyframes para Animación de Fondo CSS (Twinkle para simular constelaciones ligeras) */
+        @keyframes twinkle {
+            0%, 70%, 100% { opacity: 0.2; }
+            35% { opacity: 1; }
+        }
+
+        /* Estilo de Botones Primarios (FONDO TRANSPARENTE para CTAs de navegación) */
+        .btn-primary {
+            background-color: transparent; /* Fondo transparente */
+            color: var(--color-cta);
+            transition: all 0.3s ease;
+            box-shadow: none; /* Sombra eliminada */
+            border: none; /* Borde eliminado */
+        }
+        .btn-primary:hover {
+            transform: translateY(0);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Efecto glow sutil al pasar el mouse */
+            box-shadow: none;
+        }
+        
+        /* Estilo de Botones Secundarios (MANTENEMOS EL ESTILO DE BORDE PARA EL CTA DE WHATSAPP) */
+        .btn-secondary {
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(156, 201, 255, 0.1);
+        }
+
+        /* Estilo para el contenedor del reel/video placeholder */
+        .video-placeholder {
+            position: relative;
+            background-image: url('https://i.postimg.cc/9MYj9fZN/IMG-0387.jpg');
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .video-placeholder:hover {
+            transform: scale(1.03);
+        }
+        
+        .play-icon {
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .video-placeholder:hover .play-icon {
+            opacity: 1;
+        }
+        
+        /* Estilos del Modal (Estructura de feedback eliminada para estabilidad) */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); z-index: 1000;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            display: flex; align-items: center; justify-content: center; padding: 1rem;
+        }
+        .modal-overlay.open { opacity: 1; visibility: visible; }
+        .modal-content {
+            background-color: var(--color-dark); border: 1px solid #1f3a68;
+            border-radius: 1rem; padding: 2rem; max-width: 90%; width: 450px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95); transition: transform 0.3s;
+            position: relative;
+        }
+        .modal-overlay.open .modal-content { transform: scale(1); }
+
+        /* --- ESTILOS SCROLL REVEAL (DEL NUEVO CÓDIGO) --- */
+        .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease; }
+        .reveal.show{opacity:1;transform:none}
+        .reveal.fade{transform:none}
+        .reveal.left{transform:translateX(-24px)}
+        .reveal.right{transform:translateX(24px)}
+        .reveal.zoom{transform:scale(.96)}
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Fondo Fijo y Estable (Reemplaza Canvas) --><div class="fixed-background">
+        <!-- Re-agregamos un SVG ligero solo para el efecto twinkle/constelación estático -->
+        <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 1000 1000">
+            <circle cx="100" cy="100" r="2" fill="#9cc9ff" style="animation: twinkle 3s linear infinite alternate;"/>
+            <circle cx="200" cy="300" r="3" fill="#9cc9ff" style="animation: twinkle 4s linear infinite alternate;"/>
+            <circle cx="400" cy="250" r="2.5" fill="#9cc9ff" style="animation: twinkle 5s linear infinite alternate;"/>
+            <circle cx="600" cy="650" r="3.5" fill="#9cc9ff" style="animation: twinkle 3.5s linear infinite alternate;"/>
+            <circle cx="850" cy="950" r="4" fill="#9cc9ff" style="animation: twinkle 4.5s linear infinite alternate;"/>
+            <circle cx="50" cy="500" r="1.5" fill="#9cc9ff" style="animation: twinkle 5.5s linear infinite alternate;"/>
+            <polyline points="100,100 200,300 400,250 500,50 700,150 900,100" stroke="#9cc9ff" stroke-width="0.5" fill="none" class="opacity-10"/>
+        </svg>
+    </div>
+
+    <!-- Contenedor Principal (Centrado y Padding) --><div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+
+        <!-- HEADER (Logo y Nombre) --><header class="text-center py-2 reveal fade"> 
+            <div class="flex flex-col items-center justify-center">
+                <!-- Logo Ajustado para evitar fallos de carga (3x tamaño anterior, más estable) --><img src="https://i.postimg.cc/7b8H1Rbm/IMG-0310-removebg-preview.png" alt="Logo de Criss Lombeida, diseño limpio" class="h-48 w-48 sm:h-56 sm:w-56 lg:h-[18rem] lg:w-[18rem] object-contain mb-[-2rem] reveal zoom" data-delay="100" aria-hidden="true">
+                <!-- Se redujo el margen inferior, y ahora -mt-10 para pegarlo más --><p class="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white -mt-10 reveal fade" data-delay="300">Criss Lombeida</p>
+            </div>
+            <!-- Navegación simple para accesibilidad/scroll --><nav class="mt-2 flex justify-center space-x-6 text-sm text-gray-300 reveal fade" data-delay="500">
+                <a href="#proposito" class="hover:text-white transition">Propósito</a>
+                <a href="#casos" class="hover:text-white transition">Casos</a>
+                <a href="#servicios" class="hover:text-white transition">Servicios</a>
+                <a href="#contacto" class="hover:text-white transition">Contacto</a>
+            </nav>
+        </header>
+
+        <!-- Main content con secciones más pegadas --><main class="space-y-16 lg:space-y-24 pt-4 pb-16">
+
+            <!-- SECCIÓN HERO --><section id="hero" class="grid md:grid-cols-2 gap-10 items-center">
+                
+                <!-- Columna Izquierda: Mensaje y CTAs --><div class="md:order-1 order-2">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white mb-6 reveal left">
+                        La estrategia digital que tu emprendimiento necesita para despegar.
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-300 mb-8 reveal left" data-delay="200">
+                        Te ayudo a digitalizar tu negocio con páginas web rápidas y automatización de procesos, centrándonos en el crecimiento y la contribución social.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <!-- CTA 1: Ver casos reales (Fondo Transparente) --><a href="#casos" class="btn-primary flex items-center justify-center px-8 py-3 rounded-2xl font-semibold text-lg reveal zoom" data-delay="400">
+                            Ver casos reales →
+                        </a>
+                        <!-- CTA 2: Quiero mi página web (Fondo Borde Azul) --><a href="https://wa.me/593999630862?text=Hola%20Criss%2C%20quiero%20mi%20p%C3%A1gina%20web" target="_blank" class="btn-secondary flex items-center justify-center px-8 py-3 rounded-2xl font-semibold text-lg hover:bg-white/10 reveal zoom" data-delay="600" rel="noopener noreferrer">
+                            Quiero mi página web →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Foto/Rostro --><div class="md:order-2 order-1 flex justify-center p-4 reveal right" data-delay="100">
+                    <div class="relative w-full max-w-xs aspect-square rounded-full overflow-hidden shadow-2xl" style="box-shadow: 0 0 40px rgba(156, 201, 255, 0.4);">
+                        <img src="https://i.postimg.cc/dtmDQrsz/IMG_0318.jpg" alt="Foto de Criss Lombeida, experto en branding y desarrollo web." class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN PORTAFOLIO DE CONTRIBUCIÓN (CASOS) --><section id="casos" class="pt-10">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12 reveal fade">Portafolio de Contribución</h2>
+                <p class="text-center text-gray-300 mb-8 max-w-3xl mx-auto reveal fade" data-delay="100">Estos son algunos de los emprendimientos que hemos ayudado a digitalizar de forma gratuita o con impacto social, convirtiéndolos en historias de éxito.</p>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    
+                    <!-- Caso 1: Valú Chocobananas (ENLACE AGREGADO) --><article class="card p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm flex flex-col items-center text-center transition hover:scale-[1.02] reveal zoom" data-delay="200">
+                        <span class="text-5xl mb-3" role="img" aria-label="Emoji de Banana">🍌</span>
+                        <h3 class="text-xl font-semibold text-white mb-2">Valú Chocobananas</h3>
+                        <p class="text-gray-400 text-sm mb-4">Emprendimiento de postres.</p>
+                        <a href="https://valuchocobananas.crisslombeida.com" target="_blank" rel="noopener noreferrer" class="btn-secondary px-6 py-2 text-sm rounded-xl">Ver sitio</a>
+                    </article>
+
+                    <!-- Caso 2: Serrajería Totti --><article class="card p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm flex flex-col items-center text-center transition hover:scale-[1.02] reveal zoom" data-delay="300">
+                        <span class="text-5xl mb-3" role="img" aria-label="Emoji de Candado">🔐</span>
+                        <h3 class="text-xl font-semibold text-white mb-2">Serrajería Totti</h3>
+                        <p class="text-gray-400 text-sm mb-4">Servicios de seguridad y llaves.</p>
+                        <a href="#" class="btn-secondary px-6 py-2 text-sm rounded-xl">Ver sitio</a>
+                    </article>
+
+                    <!-- Caso 3: Parrilladas Aracely --><article class="card p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm flex flex-col items-center text-center transition hover:scale-[1.02] reveal zoom" data-delay="400">
+                        <span class="text-5xl mb-3" role="img" aria-label="Emoji de Fuego">🔥</span>
+                        <h3 class="text-xl font-semibold text-white mb-2">Parrilladas Aracely</h3>
+                        <p class="text-gray-400 text-sm mb-4">Restaurante tradicional de carnes.</p>
+                        <a href="#" class="btn-secondary px-6 py-2 text-sm rounded-xl">Ver sitio</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SECCIÓN VIDEOS Y TESTIMONIOS (ORDEN PRIORITARIO) --><section id="videos" class="pt-10">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12 reveal fade">Videos & Testimonios</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    
+                    <!-- Testimonio 1: Portada de Video Linkeada a TikTok --><a href="https://www.tiktok.com/@copiermaster.cg.e/video/7569787603541658888" target="_blank" rel="noopener noreferrer" 
+                       class="rounded-xl overflow-hidden aspect-[9/16] border border-white/10 shadow-lg video-placeholder flex items-center justify-center reveal zoom" data-delay="100">
+                        
+                        <div class="p-8 rounded-full bg-white/30 backdrop-blur-sm play-icon">
+                            <!-- Ícono de Play SVG --><svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Testimonio 2: Historia más conmovedora --><div class="bg-white/5 rounded-xl overflow-hidden aspect-[9/16] border border-white/10 flex flex-col items-center justify-center text-center p-6 shadow-lg reveal zoom" data-delay="200">
+                        <span class="text-7xl mb-4 text-red-400" role="img" aria-label="Emoji de Corazón">❤️</span>
+                        <p class="text-sm font-semibold text-[#9cc9ff] mb-2">Familia Propietaria</p>
+                        <blockquote class="text-gray-200 italic mb-4">
+                            "Antes, vivíamos al día, la preocupación era constante. Ahora, gracias a la página y al sistema, mi esposo y yo tenemos la tranquilidad de saber que **nuestro negocio es estable y sigue creciendo**. ¡Nos cambió la vida!"
+                        </blockquote>
+                        <p class="text-gray-400 text-xs">- Ana L. (Dueña de Negocio)</p>
+                    </div>
+
+                    <!-- Testimonio 3: Historia más conmovedora --><div class="bg-white/5 rounded-xl overflow-hidden aspect-[9/16] border border-white/10 flex flex-col items-center justify-center text-center p-6 shadow-lg reveal zoom" data-delay="300">
+                        <span class="text-7xl mb-4 text-yellow-400" role="img" aria-label="Emoji de Diamante">💎</span>
+                        <p class="text-sm font-semibold text-[#9cc9ff] mb-2">Marca con Visión</p>
+                        <blockquote class="text-gray-200 italic mb-4">
+                            "Habíamos invertido en tantos intentos fallidos. Criss no solo nos dio una web, nos dio una estrategia **clara y humana**. Por fin, siento que nuestra marca tiene el brillo que siempre mereció."
+                        </blockquote>
+                        <p class="text-gray-400 text-xs">- David R. (Socio Fundador)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN MISIÓN Y PROPÓSITO SOCIAL (MOVIDA ANTES DE SERVICIOS) --><section id="proposito" class="pt-10">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12 reveal fade">Nuestra Misión y Propósito Social</h2>
+                <div class="card p-8 md:p-12 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-xl text-center max-w-4xl mx-auto reveal zoom">
+                    <p class="text-xl text-gray-200 mb-4 leading-relaxed font-medium">
+                        Soy Criss Lombeida, y estoy recorriendo negocios ecuatorianos regalándoles su primera página web gratuita, porque creo en los emprendedores que sueñan en grande.
+                        <br><br>
+                        Y si tú ya tienes un negocio que quiere crecer más rápido, también puedo ayudarte con herramientas profesionales para vender más y automatizar tus procesos.
+                    </p>
+                    
+                    <!-- CTA de Empresas Movido a Propósito --><a href="#servicios" class="btn-primary flex items-center justify-center px-8 py-3 rounded-2xl font-semibold text-lg hover:text-white/80" data-delay="500">
+                        Empresa? Contrata nuestros servicios →
+                    </a>
+                </div>
+            </section>
+
+            <!-- SECCIÓN SERVICIOS PREMIUM --><section id="servicios" class="pt-10">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12 reveal fade">Servicios Profesionales para Empresas y Negocios</h2>
+                <p class="text-center text-gray-300 mb-8 max-w-3xl mx-auto reveal fade" data-delay="100">
+                    Estos planes están diseñados para empresas y negocios que buscan llevar su marca a un nivel superior, garantizando resultados medibles e implementando este modelo de servicio para su propio crecimiento.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <!-- Plan 1: Emprendedor --><div class="card p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-xl transition hover:border-white/40 reveal zoom" data-delay="200">
+                        <h3 class="text-3xl font-bold text-white mb-2">Emprendedor</h3>
+                        <p class="text-5xl font-extrabold text-white mb-6">$39 <span class="text-xl font-normal text-gray-400">/ pago único</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">✓</span> Página web profesional
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">✓</span> WhatsApp automatizado
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">✓</span> Hosting 1 año
+                            </li>
+                        </ul>
+                        <a href="#contacto" class="btn-primary w-full text-center px-6 py-3 rounded-2xl font-semibold">Solicitar</a>
+                    </div>
+
+                    <!-- Plan 2: Negocio Pro (Destacado) --><div class="card p-8 rounded-2xl bg-white/10 border-2 border-white/40 backdrop-blur-md shadow-2xl transition hover:border-white/70 reveal zoom" data-delay="300">
+                        <p class="text-sm font-bold text-center text-white bg-[#9cc9ff]/20 rounded-full py-1 mb-4">MÁS POPULAR</p>
+                        <h3 class="text-3xl font-bold text-white mb-2">Negocio Pro</h3>
+                        <p class="text-5xl font-extrabold text-white mb-6">$79 <span class="text-xl font-normal text-gray-400">/ mensual</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">✓</span> Branding y dominio .com
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">✓</span> Embudo de ventas
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">✓</span> Asistente de ventas personalizado
+                            </li>
+                        </ul>
+                        <a href="#contacto" class="btn-primary w-full text-center px-6 py-3 rounded-2xl font-semibold">Solicitar</a>
+                    </div>
+
+                    <!-- Plan 3: Corporativo Plus --><div class="card p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-xl transition hover:border-white/40 reveal zoom" data-delay="400">
+                        <h3 class="text-3xl font-bold text-white mb-2">Corporativo Plus</h3>
+                        <p class="text-5xl font-extrabold text-white mb-6">$199 <span class="text-xl font-normal text-gray-400">/ mensual</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">✓</span> Copy, animaciones y SEO
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">✓</span> Mantenimiento mensual
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">✓</span> Reportes y analítica
+                            </li>
+                        </ul>
+                        <a href="#contacto" class="btn-primary w-full text-center px-6 py-3 rounded-2xl font-semibold">Solicitar</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECCIÓN CONTACTO / CTA FINAL --><section id="contacto" class="pt-10">
+                <div class="card p-8 md:p-12 rounded-2xl bg-[#9cc9ff]/10 border border-[#9cc9ff]/30 backdrop-blur-sm shadow-xl text-center reveal zoom">
+                    <h2 class="text-4xl sm:text-5xl font-black text-white mb-4 reveal fade" data-delay="100">¿Listo para tu transformación digital?</h2>
+                    <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto reveal fade" data-delay="200">Si eres emprendedor, podrías ser el próximo caso gratuito. Si eres empresa, llevemos tu marca a otro nivel.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
+                        <a href="https://wa.me/593999630862?text=Hola%20Criss%2C%20quiero%20mi%20p%C3%A1gina%20web" target="_blank" class="btn-primary flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-xl hover:bg-white/90 reveal zoom" data-delay="300" rel="noopener noreferrer">
+                            Escríbeme por WhatsApp
+                        </a>
+                        <!-- Botón para contacto por Email --><a href="mailto:clombeida@copiermastercyg.com.ec?subject=Solicitud%20de%20Agendamiento%20Web&body=Hola%20Criss%2C%20me%20gustaría%20agendar%20una%20reunión%20para%20discutir%20mi%20proyecto.%20Mis%20datos%20son%3A" target="_blank" class="btn-secondary flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-xl hover:bg-white/10 reveal zoom" data-delay="400">
+                            Agendar Reunión (Email)
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER --><footer class="py-10 border-t border-white/10 mt-16 text-center reveal fade">
+            <p class="text-gray-400 text-sm mb-4">© 2025 Criss Lombeida — Cambiamos negocios a lo digital para cambiar vidas a lo próspero.</p>
+            <div class="flex justify-center space-x-6 text-gray-300 text-lg">
+                <!-- Iconos de Redes Sociales --><a href="#" class="hover:text-white transition"><i class="fab fa-tiktok" aria-label="TikTok Link"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram" aria-label="Instagram Link"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-youtube" aria-label="YouTube Link"></i></a>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Script de control del Scroll Reveal (Mantenido) -->
+    <script>
+        window.onload = function() {
+            // ----------------------------------------------------
+            // 1. SCROLL REVEAL (IntersectionObserver)
+            // ----------------------------------------------------
+            
+            const io = new IntersectionObserver((entries)=>{
+                entries.forEach(el=>{
+                    if(el.isIntersecting){
+                        const t = el.target;
+                        const delay = parseInt(t.dataset.delay || 0, 10);
+                        setTimeout(() => t.classList.add('show'), delay);
+                        io.unobserve(t);
+                    }
+                });
+            }, {threshold: 0.12});
+            document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+            
+        };
+    </script>
+</body>
+</html>
