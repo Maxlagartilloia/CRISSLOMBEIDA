@@ -104,7 +104,7 @@
             cursor: pointer;
             transition: transform 0.2s;
         }
-           .video-placeholder:hover {
+        .video-placeholder:hover {
             transform: scale(1.03);
         }
         
@@ -244,7 +244,7 @@
                 <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Videos & Testimonios</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     
-                    <!-- TikTok -->
+                    <!-- TikTok principal -->
                     <a href="https://www.tiktok.com/@copiermaster.cg.e/video/7569787603541658888" target="_blank" rel="noopener noreferrer" 
                        class="rounded-xl overflow-hidden aspect-[9/16] border border-white/10 shadow-lg video-placeholder flex items-center justify-center">
                         <div class="p-8 rounded-full bg-white/30 backdrop-blur-sm play-icon">
@@ -254,17 +254,38 @@
                         </div>
                     </a>
 
-                    <!-- Testimonio 1 -->
-                     <a href="https://vm.tiktok.com/ZMAvbx4ar/" target="_blank" rel="noopener noreferrer" 
-                       class="rounded-xl overflow-hidden aspect-[9/16] border border-white/10 shadow-lg video-placeholder flex items-center justify-center">
-                        <div class="p-8 rounded-full bg-white/30 backdrop-blur-sm play-icon">
-                            <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </div>
-                    </a>
+                    <!-- Testimonio 1 con foto + enlace a TikTok -->
+                    <div class="bg-white/5 rounded-xl overflow-hidden border border-white/10 flex flex-col md:flex-row items-center text-center md:text-left p-6 shadow-lg gap-4">
+                        <!-- Foto clickeable -->
+                        <a 
+                            href="https://vm.tiktok.com/ZMAvbrvTn/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="w-28 h-28 sm:w-32 sm:h-32 flex-shrink-0 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300"
+                        >
+                            <img 
+                                src="https://i.postimg.cc/Bvf3T3Cp/IMG_0180.jpg" 
+                                alt="Testimonio emprendedora" 
+                                class="w-full h-full object-cover"
+                            />
+                        </a>
 
-                    <!-- Testimonio 2 -->
+                        <!-- Texto del testimonio -->
+                        <div class="flex-1">
+                            <p class="text-xs uppercase tracking-wide text-[#9cc9ff] mb-1 font-semibold">Testimonio real</p>
+                            <blockquote class="text-gray-200 text-sm sm:text-base italic mb-3">
+                                “Estoy realmente feliz con el resultado. Mi página web quedó moderna, ordenada y ahora las personas me escriben directo al WhatsApp para hacer sus pedidos. 
+                                Siento que mi emprendimiento por fin se ve profesional.”
+                            </blockquote>
+                            <p class="text-gray-300 text-sm font-semibold mb-1">— Nombre de la Emprendedora</p>
+                            <p class="text-gray-400 text-xs">Emprendimiento acompañado por Criss Lombeida</p>
+                            <p class="mt-2 text-[11px] text-gray-400">
+                                Haz clic en la foto para ver el video completo en TikTok.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 2 (diamante) -->
                     <div class="bg-white/5 rounded-xl overflow-hidden aspect-[9/16] border border-white/10 flex flex-col items-center justify-center text-center p-6 shadow-lg">
                         <span class="text-7xl mb-4 text-yellow-400" role="img" aria-label="Emoji de Diamante">💎</span>
                         <p class="text-sm font-semibold text-[#9cc9ff] mb-2">Marca con Visión</p>
@@ -299,7 +320,6 @@
                 </p>
                 
                 <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
-                    <!-- Reemplaza # con tus enlaces reales -->
                     <a href="#" target="_blank" class="btn-social w-full max-w-xs md:w-auto flex items-center justify-center space-x-3 px-8 py-4 rounded-full text-white bg-tiktok">
                         <i class="fab fa-tiktok text-xl"></i>
                         <span class="font-bold">Síguenos en TikTok</span>
@@ -317,7 +337,7 @@
                 </div>
             </section>
 
-            <!-- NUEVA SECCIÓN: SOLUCIONES EMPRESARIALES (COPIERMASTER) -->
+            <!-- SOLUCIONES EMPRESARIALES (COPIERMASTER) -->
             <section id="copiermaster" class="pt-10">
                 <div class="card p-8 md:p-12 rounded-2xl bg-[#030916]/90 border border-[#9cc9ff]/40 backdrop-blur-sm shadow-2xl max-w-5xl mx-auto">
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-4">
@@ -354,7 +374,7 @@
                         Si tienes un emprendimiento, escríbeme para evaluar si puedes recibir una página web gratuita.
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
-                        <a href="https://wa.me/593999630862?text=Hola%20Criss%2C%20quiero%20mi%20p%C3%A1gina%20web" target="_blank" class="btn-primary flex items-center justify-center px-6 py-4 rounded-2xl font-bold text-base sm:text-xl hover:bg-white/90" rel="noopener noreferrer">
+                        <a href="https://wa.me/593999630862?text=Hola%20Criss%2C%20quiero%20mi%20p%C3%A1gina%20web" target="_blank" class="btn-primary flex items-center justify-center px-6 py-4 rounded-2xl font-bold text-base sm:text-xl hover:bg:white/90" rel="noopener noreferrer">
                             Escríbeme por WhatsApp
                         </a>
                         <a href="mailto:clombeida@copiermastercyg.com.ec?subject=Solicitud%20para%20p%C3%A1gina%20web%20gratuita&body=Hola%20Criss%2C%20me%20gustar%C3%ADa%20saber%20si%20mi%20emprendimiento%20califica%20para%20la%20p%C3%A1gina%20web%20gratuita.%20Mis%20datos%20son%3A" target="_blank" class="btn-secondary flex items-center justify-center px-6 py-4 rounded-2xl font-bold text-base sm:text-xl hover:bg-white/10">
